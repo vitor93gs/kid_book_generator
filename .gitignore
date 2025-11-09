@@ -1,0 +1,8 @@
+.venv
+.env
+# Ignore Python cache folders
+__pycache__/
+*.py[cod]
+
+# Ignore pytest cache
+.pytest_cache/
