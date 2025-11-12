@@ -16,8 +16,11 @@ client = TestClient(app)
 
 @pytest.fixture(scope="function", autouse=True)
 def cleanup_created_characters():
-    """
-    Fixture to clean up only the characters created during the test.
+    """Fixture to collect and clean up characters created during the test.
+
+    Yields a mutable list which tests should append created character IDs to.
+    After the test completes the fixture will remove those documents from the
+    `characters` collection.
     """
     created_character_ids = []
     yield created_character_ids

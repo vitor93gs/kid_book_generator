@@ -10,6 +10,11 @@ with open("app/json_schemas/character.json", "r") as schema_file:
 client = TestClient(app)
 
 def test_character_route():
+    """End-to-end test for the `/character` route using a real image.
+
+    The test sends an actual image file to the endpoint and validates that
+    the response conforms to the `character.json` schema.
+    """
     # Use the actual image file for testing
     with open("tests/assets/test_person.png", "rb") as image_file:
         files = {"file": ("test_person.png", image_file, "image/png")}

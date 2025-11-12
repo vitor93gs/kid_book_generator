@@ -30,7 +30,9 @@ try:
     # Attempt to ping the server to check connection
     client.admin.command('ping')
     db = client[MONGODB_DB]
+    # Collections
     characters_collection = db["characters"]
+    users_collection = db["users"]
 except errors.ServerSelectionTimeoutError as e:
     raise RuntimeError(f"Could not connect to MongoDB: {e}")
 except Exception as e:
